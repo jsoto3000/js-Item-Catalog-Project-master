@@ -1,0 +1,41 @@
+{% extends "main.html" %}
+{% block content %}
+
+<div class="row">
+	<div class="panel panel-default">
+		<div class="panel-heading" style="background-color: #282726">
+			<h1 style="color: #A7414A"><b>Edit the Item</b></h1>
+		</div>
+		<div class="panel-body">
+			<div class="form-group" style="color:#A37C27;">
+				<form action="{{url_for('editItem', item_id = item.id)}}" method = "post">
+					<label for="name">Name:</label>
+					<input type="text" class="form-control" name="name" placeholder="Enter name of the item" value="{{item.name}}"required/>
+
+					<label for="price">Price:</label>
+					<input type="text" class="form-control" name="price" placeholder="Enter price of item" value="{{item.price}}" required/>
+
+					<label for="Description">Description <span style="color: grey;">(optional)</span>:</label>
+					<input type="text" class="form-control" name="desc" placeholder="Enter item details" value="{{item.description}}"/>
+					<br>
+					<label for="category">Category:</label>
+					<br>
+					
+					<select name="cate">
+						{% for cat in categories%}
+							{% if cat.id == item.category_id %}
+								<option selected="selected">{{cat.name}}</option>
+							{% else %}
+								<option>{{cat.name}}</option>
+							{% endif %}
+						{%endfor%}
+					</select>
+					<br> <br>
+					<button type="submit" class="btn btn-danger">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

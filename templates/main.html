@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Item Catalog</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script src="//apis.google.com/js/platform.js?onload=start"> </script>
+	<link rel="shortcut icon" href="https://cdn1.iconfinder.com/data/icons/office-icons-17/512/ilustracoes_04-02-512.png" />
+	<link rel="stylesheet" href="{{ url_for('static',filename = 'css/style.css') }}" /> {% if errorMsg %}
+	<script>alert('{{errorMsg}}')</script> {% endif %}
+</head>
+
+<body>
+	<nav class="navbar navbar-inverse fixed-top navbar-expand-md bg-light">
+		<div class="container">
+			<a class="navbar-brand" style="color:white" href="{{url_for('showCatalog')}}">
+				<b>Item Catalog </b>
+				<i class="fa fa-align-left"></i>
+			</a>
+
+			<ul class="nav navbar-nav pull-right">
+				<li id="loginBut">
+					<a href="{{url_for('showLogin')}}">
+						<i class="fa fa-sign-in"></i> Login</a>
+				</li>
+				<li id="logoutBut">
+					<a href="{{url_for('gdisconnect')}}" class="pull-right">
+						<i class="fa fa-sign-out"></i> Logout</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container main-block">
+		<b>
+			{% block content %} {% endblock %}
+		</b>
+	</div>
+
+	<footer class="fixed-bottom">
+		<div id="page_footer">
+			<i class="fa fa-code" aria-hidden="true"></i> by
+			<a href="https://www.github.com/ashutosh-sharma" target="_blank" style="text-decoration:none">Javier Soto</a>
+			<i class="fa fa-github" aria-hidden="true"></i>
+		</div>
+	</footer>
+
+</body>
+
+<!-- To toggle between login and logout buttons -->
+<script>
+	var flag = {{ loggedIn }};
+	if (flag == 0) {
+		$('#logoutBut').attr('style', 'display: none')
+		$('#loginBut').attr('style', 'display: block')
+	}
+	if (flag == 1) {
+		$('#loginBut').attr('style', 'display: none')
+		$('#logoutBut').attr('style', 'display: block')
+	}
+</script>
+
+</html>

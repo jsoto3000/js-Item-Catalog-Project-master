@@ -1,0 +1,41 @@
+* {
+  font-family: "Bellefair", Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: large !important;
+}
+
+body {
+  background: #344046;
+}
+
+a {
+  font-size: 2.5vh;
+  text-decoration: none !important;
+}
+
+.lb-sm {
+  font-size: 1.5vh;
+}
+
+.lb-md {
+  font-size: 2.2vh;
+}
+
+.lb-lg {
+  font-size: 2.8vh;
+}
+
+.main-block {
+  margin: auto;
+  margin-bottom: 5%;
+}
+
+#page_footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+}

@@ -1,0 +1,18 @@
+{% extends "main.html" %}
+{% block content %}
+
+<div class="row">
+	<div class="panel panel-danger">
+		<div class="panel-heading">
+			<h1>Are you sure you want to delete <b>{{item.name}}</b>?</h1>
+		</div>
+
+		<div class="panel-body" style="text-align: center">
+			<a href="{{url_for('deleteItem', item_id = item.id)}}" class="btn btn-danger">Yes</a>
+
+			<a href="{{url_for('categoryMenu', category_id = item.category_id)}}" class="btn btn-success">Cancel</a>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "main.html" %}
+{% block content %}
+<div class="row top-menu">
+	<div class="col-md-10"></div>
+	<div class="col-md-2 text-right"></div>
+</div>
+
+<div class = 'flash' style="text-align:center; background-color: #181d24; color:#f7d169">
+	{% with messages = get_flashed_messages() %}
+	{% if messages %}
+	<ul type="none">
+		{% for message in messages %}
+		<li> <strong style="text-transform: uppercase;">{{ message }} </strong> </li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+	{% endwith %}
+</div>
+
+<div class="row">
+	<div class="col-md-4">
+		<div class="panel panel-primary" style="background: #92bbfc;">
+			<div class="panel-heading text-center" style="background: #2B303C"><h1><b>Category</b></h1></div>
+			<div class="panel-body">
+				<ul class="list-group">
+					{% for cat in categories %}
+					<li class="list-group-item">
+						<a href = "{{url_for('categoryMenu', category_id = cat.id)}}"><span>{{cat.name}}</span></a>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="panel panel-success">
+				<div class="panel-heading  text-center" >
+					<a href="{{url_for('newItem')}}" class="btn btn-success center-block">Add Item</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+	<div class="col-md-8 latestItems">
+		<div class="panel panel-primary" style="background: #92bbfc;">
+			<div class="panel-heading text-center" style="background: #2B303C"><h1><b>Latest Items</b></h1></div>
+			<div class="panel-body">
+				<ul class="list-group">
+					{% for item in items %}
+					<li class="list-group-item">
+						<a href = "{{url_for('showItem', item_id = item.id)}}">
+							{{item.name}}	
+						</a>
+						<i> ({{item.category.name}})</i>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

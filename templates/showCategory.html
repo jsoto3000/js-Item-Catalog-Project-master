@@ -1,0 +1,25 @@
+{% extends "main.html" %}
+{% block content %}
+<div class="row divider blue">
+	<div class="col-md-12"></div>
+</div>
+
+<div class="panel panel-primary" style="background-color: #fff;">
+	<div class="panel-heading center-block" style="background: #1D65A6; color:white;"><center><h3><b>{{category.name}}</b></h3></center></div>
+	<div class="panel-body">
+		<ul class="list-group">
+			{% for item in items %}
+			<li class="list-group-item">
+				<a href = "{{url_for('showItem', item_id = item.id)}}">
+					{{item.name}}
+				</a>
+			</li>
+			{% endfor %}
+		</ul>
+	</div>
+
+	<div class="text-center">
+		<a href="{{url_for('showCatalog')}}" class="btn btn-primary">Go to catalog</a>
+	</div>
+</div>
+{% endblock %}

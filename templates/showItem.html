@@ -1,0 +1,48 @@
+{% extends "main.html" %}
+{% block content %}
+
+<div class="row top-menu">
+	<div class="col-md-10"></div>
+	<div class="col-md-2 text-right"></div>
+</div>
+<div class="row divider blue">
+	<div class="col-md-12"></div>
+</div>
+
+<div class="row">
+	<div class="panel panel-primary" style="background: #92bbfc;">
+		<div class="panel-heading" style="background: #1A2C56; color:#D1A683">	<h1><b>{{item.name}}</b></h1></div>
+		<div class="panel-body">
+			<ul class="list-group">
+				<li class="list-group-item">
+					<span class="label label-default">Description</span>
+					<h4>{{item.description}}</h4>
+				</li>
+				
+				<li class="list-group-item">
+					<span class="label label-default">Price</span>
+					<h3>{{item.price}}</h3>
+				</li>
+				<li class="list-group-item">
+						
+				<div class="panel panel-success">
+					<div class="panel-body" >
+							<div style="float:left; margin-left:1%">
+								<a href="{{url_for('editItem', item_id = item.id)}}">
+									<button type="button" class="btn btn-success">Edit</button>
+								</a>
+							</div>  
+							<div style="float:left; margin-left :3%">
+								<a href="{{url_for('confirmDeleteItem', item_id = item.id)}}">
+									<button type="button" class="btn btn-danger">Delete</button>
+								</a>
+							</div>
+						</li>
+
+					</div>
+				</div>
+			</ul>
+		</div>
+	</div>
+</div>
+{% endblock %}
