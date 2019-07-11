@@ -11,7 +11,7 @@
 
 _____
 
-### Getting Started - Run the application 🏃
+### Getting Started - Run the application
 
 #### PreRequisites
   * [Python ~2.7](https://www.python.org/)
@@ -42,7 +42,7 @@ _____
   ```
   4. Access and test your application by visiting [http://localhost:5000](http://localhost:5000).
   
-  ### Build with
+  ### Built with
  
    * [Python IDLE](https://www.python.org)
    * [Google Chrome](https://www.google.com/chrome)
